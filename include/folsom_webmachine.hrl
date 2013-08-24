@@ -9,5 +9,6 @@
                    {["_metrics"],folsom_webmachine_metrics_resource,[]},
                    {["_metrics",id],folsom_webmachine_metrics_resource,[]},
                    {["_ets"],folsom_webmachine_ets_resource,[]},
-                   {["_dets"],folsom_webmachine_dets_resource,[]}
+                   {["_dets"],folsom_webmachine_dets_resource,[]},
+                   {["_dump"],folsom_webmachine_dump_metrics_resource,[]}
                   ]).
