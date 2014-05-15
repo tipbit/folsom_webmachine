@@ -42,6 +42,8 @@ generate([Metric | Rest], A) ->
             [{count, folsom_metrics:get_metric_value(Metric)}];
         meter ->
             folsom_metrics:get_metric_value(Metric);
+	spiral ->
+	    folsom_metrics:get_metric_value(Metric);
         %%TODO: implement histogram
         _ ->
             []
