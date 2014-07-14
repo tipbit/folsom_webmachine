@@ -36,14 +36,15 @@ dump() ->
 generate([], A) ->
     A;
 generate([Metric | Rest], A) ->
-    Type =  proplists:get_value(Metric, folsom_metrics:get_metric_info(Metric), []),
+    Type =  proplists:delete(tags, proplists:get_value(Metric,
+                             folsom_metrics:get_metric_info(Metric), [])),
     Value = case proplists:get_value(type, Type) of
         counter ->
             [{count, folsom_metrics:get_metric_value(Metric)}];
         meter ->
             folsom_metrics:get_metric_value(Metric);
-	spiral ->
-	    folsom_metrics:get_metric_value(Metric);
+        spiral ->
+            folsom_metrics:get_metric_value(Metric);
         %%TODO: implement histogram
         _ ->
             []
